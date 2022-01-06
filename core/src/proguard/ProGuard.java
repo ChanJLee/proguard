@@ -43,7 +43,7 @@ import java.io.*;
  */
 public class ProGuard
 {
-    public static final String VERSION = "ProGuard, version 6.0.3";
+    public static final String VERSION = "ProGuard, version 6.0.3-fixed";
 
     private final Configuration configuration;
     private       ClassPool     programClassPool = new ClassPool();
@@ -61,6 +61,7 @@ public class ProGuard
      */
     public ProGuard(Configuration configuration)
     {
+        configuration.ignoreWarnings = false;
         this.configuration = configuration;
     }
 
@@ -70,6 +71,7 @@ public class ProGuard
      */
     public void execute() throws IOException
     {
+        System.out.println("HELLO ANDROID MAKE, I AM PROGUARD");
         System.out.println(VERSION);
 
         GPL.check();

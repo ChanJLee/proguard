@@ -9,4 +9,5 @@ source ../buildscripts/functions.sh
 MAIN_CLASS=proguard.ProGuard
 
 compile   $MAIN_CLASS && \
+mkdir ../lib
 createjar "$PROGUARD_JAR" || exit 1
