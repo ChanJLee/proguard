@@ -62,6 +62,15 @@ public class ProGuard
     public ProGuard(Configuration configuration)
     {
         configuration.ignoreWarnings = false;
+        if (configuration.warn != null) {
+            Iterator<?> iterator = mIncludePatterns.iterator();
+            while (iterator.hasNext()) {
+                Object o = iterator.next();
+                if (o != null && o.toString().contains("shanbay")) {
+                    iterator.remove();
+                }
+            }
+        }
         this.configuration = configuration;
     }
 
