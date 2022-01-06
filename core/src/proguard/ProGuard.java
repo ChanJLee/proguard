@@ -35,6 +35,7 @@ import proguard.shrink.Shrinker;
 import proguard.util.*;
 
 import java.io.*;
+import java.util.Iterator;
 
 /**
  * Tool for shrinking, optimizing, obfuscating, and preverifying Java classes.
@@ -63,10 +64,11 @@ public class ProGuard
     {
         configuration.ignoreWarnings = false;
         if (configuration.warn != null) {
-            Iterator<?> iterator = mIncludePatterns.iterator();
+            Iterator<?> iterator = configuration.warn.iterator();
             while (iterator.hasNext()) {
                 Object o = iterator.next();
                 if (o != null && o.toString().contains("shanbay")) {
+                    System.out.println(">> ANDROID MAKE: remove shanbay dontwarn: " + o);
                     iterator.remove();
                 }
             }
